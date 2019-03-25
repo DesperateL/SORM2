@@ -35,8 +35,11 @@ public class ReflectUtils {
         //调用rowObj对象的set方法，将columnValue设置进去
         Method m = null;
         try {
-            m = obj.getClass().getDeclaredMethod("set"+ StringUtils.firstChar2UpperCase(columnName),columnValue.getClass());
-            m.invoke(obj,columnValue);
+            if(columnValue!=null){
+                m = obj.getClass().getDeclaredMethod("set"+ StringUtils.firstChar2UpperCase(columnName),columnValue.getClass());
+                m.invoke(obj,columnValue);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

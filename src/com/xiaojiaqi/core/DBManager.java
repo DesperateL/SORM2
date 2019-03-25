@@ -21,7 +21,7 @@ public class DBManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //加载配置文件
         conf = new Configuration();
         conf.setDriver(pros.getProperty("driver"));
         conf.setUrl(pros.getProperty("url"));
@@ -30,6 +30,7 @@ public class DBManager {
         conf.setSrcPath(pros.getProperty("srcPath"));
         conf.setUsingDB(pros.getProperty("usingDB"));
         conf.setPoPackage(pros.getProperty("poPackage"));
+        conf.setQueryClass(pros.getProperty("queryClass"));
 
     }
     public static Connection getConn(){

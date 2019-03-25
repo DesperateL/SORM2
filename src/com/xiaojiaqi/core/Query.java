@@ -14,7 +14,7 @@ import java.util.List;
  * 负责查询（对外提供服务的核心类）
  */
 @SuppressWarnings("all")
-public abstract class Query {
+public abstract class Query implements Cloneable{
 
     /**
      * 采用模板方法模式将JCDBC操作封装成模板，便于重用
@@ -299,5 +299,10 @@ public abstract class Query {
      * @return
      */
     public abstract Object queryPagenate(int pageNum,int size);
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
 
